@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { useParams } from "next/navigation";
+import { useState, useCallback } from "react";
 
 interface Staff {
   id: string;
@@ -10,42 +9,29 @@ interface Staff {
   position?: string;
 }
 
-interface TenantData {
-  id: string;
-  name: string;
-  slug: string;
-  logoUrl?: string;
-  primaryColor: string;
-  welcomeMessage: string;
-  welcomeMessageEn: string;
-  staff: Staff[];
-}
+const DEMO_STAFF: Staff[] = [
+  { id: "1", nameJp: "田中 太郎", nameEn: "Taro Tanaka", position: "代表取締役" },
+  { id: "2", nameJp: "佐藤 花子", nameEn: "Hanako Sato", position: "取締役" },
+  { id: "3", nameJp: "鈴木 一郎", nameEn: "Ichiro Suzuki", position: "事業部長" },
+  { id: "4", nameJp: "山田 美咲", nameEn: "Misaki Yamada", position: "マネージャー" },
+  { id: "5", nameJp: "高橋 健太", nameEn: "Kenta Takahashi" },
+  { id: "6", nameJp: "渡辺 さくら", nameEn: "Sakura Watanabe" },
+];
+
+const TENANT = {
+  name: "Demo Company Inc.",
+  primaryColor: "#1a8a7d",
+  welcomeMessage: "ようこそ。担当者をお呼びします。",
+  welcomeMessageEn: "Welcome. We'll notify your contact.",
+};
 
 type Screen = "welcome" | "staff" | "confirm";
-
 const AUTO_RESET_SEC = 5;
 
-export default function ReceptionPage() {
-  const params = useParams();
-  const slug = params.slug as string;
-
-  const [tenant, setTenant] = useState<TenantData | null>(null);
+export default function ReceptionDemoPage() {
   const [screen, setScreen] = useState<Screen>("welcome");
   const [selectedStaff, setSelectedStaff] = useState<Staff | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch(`/api/tenants/${slug}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Not found");
-        return res.json();
-      })
-      .then(setTenant)
-      .catch(() => setError("Organization not found"))
-      .finally(() => setLoading(false));
-  }, [slug]);
 
   const showToast = useCallback((msg: string) => {
     setToast(msg);
@@ -53,55 +39,28 @@ export default function ReceptionPage() {
   }, []);
 
   const selectStaff = useCallback(
-    async (staff: Staff) => {
-      if (!tenant) return;
+    (staff: Staff) => {
       setSelectedStaff(staff);
       setScreen("confirm");
-
-      try {
-        await fetch("/api/notify", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tenantId: tenant.id,
-            staffId: staff.id,
-          }),
-        });
-      } catch {
-        showToast("通知の送信に失敗しました");
-      }
+      showToast("Demo: 通知が送信されました（実際には送信されません）");
 
       setTimeout(() => {
         setScreen("welcome");
         setSelectedStaff(null);
       }, AUTO_RESET_SEC * 1000);
     },
-    [tenant, showToast]
+    [showToast]
   );
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="animate-pulse text-gray-400 text-lg">Loading...</div>
-      </div>
-    );
-  }
-
-  if (error || !tenant) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <p className="text-gray-500 text-lg">{error || "Not found"}</p>
-      </div>
-    );
-  }
-
-  const accent = tenant.primaryColor;
+  const accent = TENANT.primaryColor;
 
   return (
-    <div
-      className="min-h-screen bg-gray-50 select-none overflow-hidden"
-      style={{ ["--accent" as string]: accent }}
-    >
+    <div className="min-h-screen bg-gray-50 select-none overflow-hidden relative">
+      {/* Demo Banner */}
+      <div className="absolute top-0 left-0 right-0 bg-amber-500 text-white text-center text-sm py-2 font-medium z-50">
+        Demo Mode — 実際の通知は送信されません
+      </div>
+
       {/* ===== Welcome Screen ===== */}
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center p-10 transition-all duration-400 ${
@@ -110,25 +69,17 @@ export default function ReceptionPage() {
             : "opacity-0 translate-y-5 pointer-events-none"
         }`}
       >
-        {tenant.logoUrl ? (
-          <img
-            src={tenant.logoUrl}
-            alt={tenant.name}
-            className="max-w-[520px] h-auto mb-8"
-          />
-        ) : (
-          <h1 className="text-5xl font-bold text-gray-900 mb-8 tracking-tight">
-            {tenant.name}
-          </h1>
-        )}
+        <h1 className="text-5xl font-bold text-gray-900 mb-8 tracking-tight">
+          {TENANT.name}
+        </h1>
         <div
           className="w-16 h-[3px] rounded-full mb-9"
           style={{ background: accent }}
         />
         <p className="text-gray-500 text-xl text-center leading-relaxed mb-12">
-          {tenant.welcomeMessage}
+          {TENANT.welcomeMessage}
           <br />
-          {tenant.welcomeMessageEn}
+          {TENANT.welcomeMessageEn}
         </p>
         <button
           onClick={() => setScreen("staff")}
@@ -154,12 +105,11 @@ export default function ReceptionPage() {
           お会いになりたい担当者を選んでください。
         </p>
         <div className="grid grid-cols-2 gap-3.5 w-full max-w-[640px] mb-8">
-          {tenant.staff.map((s) => (
+          {DEMO_STAFF.map((s) => (
             <button
               key={s.id}
               onClick={() => selectStaff(s)}
-              className="bg-white border-2 border-gray-200 rounded-2xl py-5 px-4 text-center
-                transition-all active:scale-[0.97] hover:border-gray-300"
+              className="bg-white border-2 border-gray-200 rounded-2xl py-5 px-4 text-center transition-all active:scale-[0.97] hover:border-gray-300"
             >
               <div className="text-xl font-bold text-gray-900">{s.nameJp}</div>
               <div className="text-sm text-gray-400 tracking-wide">
@@ -227,7 +177,7 @@ export default function ReceptionPage() {
 
       {/* ===== Toast ===== */}
       <div
-        className={`fixed bottom-10 left-1/2 -translate-x-1/2 bg-red-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
+        className={`fixed bottom-10 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 z-50 ${
           toast
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20 pointer-events-none"
@@ -235,7 +185,6 @@ export default function ReceptionPage() {
       >
         {toast}
       </div>
-
     </div>
   );
 }

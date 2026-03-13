@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const INTEGRATIONS = [
   { name: "Slack", icon: "💬" },
   { name: "Microsoft Teams", icon: "🟪" },
@@ -119,18 +117,18 @@ export default function HomePage() {
             <a href="#pricing" className="hover:text-gray-900 transition-colors">
               料金
             </a>
-            <Link
-              href="/login"
+            <a
+              href="#pricing"
               className="text-gray-900 font-medium hover:underline"
             >
               ログイン
-            </Link>
-            <Link
-              href="/signup"
+            </a>
+            <a
+              href="#pricing"
               className="bg-gray-900 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors"
             >
               無料で始める
-            </Link>
+            </a>
           </nav>
         </div>
       </header>
@@ -150,12 +148,12 @@ export default function HomePage() {
             シンプルなUI。明瞭な料金。問い合わせベースで柔軟にカスタマイズ。
           </p>
           <div className="flex gap-4 justify-center">
-            <Link
-              href="/signup"
+            <a
+              href="#pricing"
               className="bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors"
             >
               無料で始める
-            </Link>
+            </a>
             <a
               href="#features"
               className="border-2 border-gray-200 text-gray-600 px-8 py-4 rounded-full text-lg font-semibold hover:border-gray-300 transition-colors"
@@ -312,7 +310,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link
+                <a
                   href={plan.name === "Enterprise" ? "/contact" : "/signup"}
                   className={`block text-center py-3 rounded-full font-semibold text-sm transition-colors ${
                     plan.highlighted
@@ -321,7 +319,7 @@ export default function HomePage() {
                   }`}
                 >
                   {plan.cta}
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -337,12 +335,12 @@ export default function HomePage() {
           <p className="text-gray-500 text-lg mb-8">
             クレジットカード不要。5分で受付画面が完成します。
           </p>
-          <Link
-            href="/signup"
+          <a
+            href="#pricing"
             className="inline-block bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors"
           >
             無料で始める
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -359,7 +357,7 @@ export default function HomePage() {
             <a href="/privacy" className="hover:text-gray-600">
               プライバシーポリシー
             </a>
-            <a href="/contact" className="hover:text-gray-600">
+            <a href="/reception-saas/contact" className="hover:text-gray-600">
               お問い合わせ
             </a>
           </div>

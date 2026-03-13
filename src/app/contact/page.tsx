@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import Link from "next/link";
+
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -16,9 +16,9 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
-          <Link href="/" className="text-xl font-bold text-gray-900 tracking-tight">
+          <a href="/reception-saas" className="text-xl font-bold text-gray-900 tracking-tight">
             ReceptionPad
-          </Link>
+          </a>
         </div>
       </header>
 
@@ -32,12 +32,12 @@ export default function ContactPage() {
             <p className="text-gray-500 mb-8">
               2営業日以内にご連絡いたします。
             </p>
-            <Link
-              href="/"
+            <a
+              href="/reception-saas"
               className="text-emerald-600 font-medium hover:underline"
             >
               トップに戻る
-            </Link>
+            </a>
           </div>
         ) : (
           <>

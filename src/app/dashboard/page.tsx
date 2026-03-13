@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+
 
 // Demo data for the dashboard preview
 const DEMO_STAFF = [
@@ -53,17 +53,17 @@ export default function DashboardPage() {
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold text-gray-900 tracking-tight">
+          <a href="/reception-saas" className="text-xl font-bold text-gray-900 tracking-tight">
             ReceptionPad
-          </Link>
+          </a>
           <div className="flex items-center gap-4">
-            <Link
-              href="/reception/demo"
+            <a
+              href="/reception-saas/reception/demo"
               target="_blank"
               className="text-sm text-emerald-600 font-medium hover:underline"
             >
               受付画面プレビュー →
-            </Link>
+            </a>
             <div className="w-8 h-8 bg-gray-200 rounded-full" />
           </div>
         </div>
