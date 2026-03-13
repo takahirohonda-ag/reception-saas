@@ -1,0 +1,150 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ===== Auth =====
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  tenants       TenantMember[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ===== Tenant (Organization) =====
+model Tenant {
+  id              String          @id @default(cuid())
+  name            String
+  slug            String          @unique
+  logoUrl         String?
+  primaryColor    String          @default("#1a8a7d")
+  welcomeMessage  String          @default("ようこそ。担当者をお呼びします。")
+  welcomeMessageEn String         @default("Welcome. We'll notify your contact.")
+  plan            Plan            @default(FREE)
+  members         TenantMember[]
+  staffMembers    StaffMember[]
+  notifications   NotificationChannel[]
+  visitorLogs     VisitorLog[]
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+model TenantMember {
+  id       String       @id @default(cuid())
+  userId   String
+  tenantId String
+  role     MemberRole   @default(ADMIN)
+  user     User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant   Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tenantId])
+}
+
+// ===== Staff (Reception Screen) =====
+model StaffMember {
+  id          String      @id @default(cuid())
+  tenantId    String
+  nameJp      String
+  nameEn      String
+  position    String?
+  displayOrder Int        @default(0)
+  isActive    Boolean     @default(true)
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  visitorLogs VisitorLog[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+// ===== Notification Channels =====
+model NotificationChannel {
+  id          String              @id @default(cuid())
+  tenantId    String
+  type        NotificationType
+  name        String
+  config      Json                // channel-specific config (webhook URL, email, etc.)
+  isActive    Boolean             @default(true)
+  tenant      Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+// ===== Visitor Log =====
+model VisitorLog {
+  id           String      @id @default(cuid())
+  tenantId     String
+  staffId      String
+  visitorName  String?
+  companyName  String?
+  notifiedAt   DateTime    @default(now())
+  tenant       Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  staff        StaffMember @relation(fields: [staffId], references: [id])
+}
+
+// ===== Enums =====
+enum Plan {
+  FREE
+  STANDARD
+  ENTERPRISE
+}
+
+enum MemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum NotificationType {
+  SLACK
+  TEAMS
+  GOOGLE_CHAT
+  EMAIL
+  LINE
+  LINE_WORKS
+  DISCORD
+  WEBHOOK
+  SMS
+}
