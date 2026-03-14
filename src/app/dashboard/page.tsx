@@ -58,7 +58,7 @@ export default function DashboardPage() {
           </a>
           <div className="flex items-center gap-4">
             <a
-              href="/reception-saas/reception/demo"
+              href="/reception/demo"
               target="_blank"
               className="text-sm text-emerald-600 font-medium hover:underline"
             >

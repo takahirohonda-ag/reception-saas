@@ -64,7 +64,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-lg font-bold text-gray-900 mb-3">7. お問い合わせ</h2>
-            <p>個人情報の取り扱いに関するお問い合わせは、<a href="/reception-saas/contact" className="text-emerald-600 hover:underline">お問い合わせフォーム</a>よりご連絡ください。</p>
+            <p>個人情報の取り扱いに関するお問い合わせは、<a href="/contact" className="text-emerald-600 hover:underline">お問い合わせフォーム</a>よりご連絡ください。</p>
           </section>
 
           <section>

@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // ===== Auth =====
@@ -13,7 +14,9 @@ model User {
   name          String?
   email         String    @unique
   emailVerified DateTime?
+  password      String?
   image         String?
+  role          UserRole  @default(USER)
   accounts      Account[]
   sessions      Session[]
   tenants       TenantMember[]
@@ -105,7 +108,7 @@ model NotificationChannel {
   tenantId    String
   type        NotificationType
   name        String
-  config      Json                // channel-specific config (webhook URL, email, etc.)
+  config      Json
   isActive    Boolean             @default(true)
   tenant      Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   createdAt   DateTime            @default(now())
@@ -124,7 +127,26 @@ model VisitorLog {
   staff        StaffMember @relation(fields: [staffId], references: [id])
 }
 
+// ===== Inquiry =====
+model Inquiry {
+  id          String        @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  category    String
+  message     String        @db.Text
+  status      InquiryStatus @default(NEW)
+  note        String?       @db.Text
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
 // ===== Enums =====
+enum UserRole {
+  USER
+  ADMIN
+}
+
 enum Plan {
   FREE
   STANDARD
@@ -147,4 +169,10 @@ enum NotificationType {
   DISCORD
   WEBHOOK
   SMS
+}
+
+enum InquiryStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
 }

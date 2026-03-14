@@ -162,7 +162,7 @@ export default function HomePage() {
               無料で始める
             </a>
             <a
-              href="/reception-saas/reception/demo"
+              href="/reception/demo"
               className="border-2 border-gray-200 text-gray-600 px-8 py-4 rounded-full text-lg font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all"
             >
               デモを見る
@@ -214,7 +214,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <a
-                  href="/reception-saas/reception/demo"
+                  href="/reception/demo"
                   className="inline-flex items-center gap-1.5 text-sm text-emerald-600 font-medium hover:text-emerald-700 transition-colors"
                 >
                   実際に操作してみる
@@ -361,7 +361,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <a
-                  href={plan.name === "Enterprise" ? "/reception-saas/contact" : "#pricing"}
+                  href={plan.name === "Enterprise" ? "/contact" : "#pricing"}
                   className={`block text-center py-3.5 rounded-full font-semibold text-sm transition-all ${
                     plan.highlighted
                       ? "bg-white text-gray-900 hover:bg-gray-100 shadow-lg"
@@ -395,7 +395,7 @@ export default function HomePage() {
               無料で始める
             </a>
             <a
-              href="/reception-saas/contact"
+              href="/contact"
               className="border-2 border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all"
             >
               お問い合わせ
@@ -431,8 +431,8 @@ export default function HomePage() {
               <div>
                 <h4 className="text-white font-semibold mb-4">その他</h4>
                 <div className="space-y-2.5">
-                  <a href="/reception-saas/contact" className="block hover:text-white transition-colors">お問い合わせ</a>
-                  <a href="/reception-saas/privacy" className="block hover:text-white transition-colors">プライバシーポリシー</a>
+                  <a href="/contact" className="block hover:text-white transition-colors">お問い合わせ</a>
+                  <a href="/privacy" className="block hover:text-white transition-colors">プライバシーポリシー</a>
                 </div>
               </div>
             </div>
