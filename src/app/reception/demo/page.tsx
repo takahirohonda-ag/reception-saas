@@ -19,7 +19,7 @@ const DEMO_STAFF: Staff[] = [
 ];
 
 const TENANT = {
-  name: "Demo Company Inc.",
+  name: "Demo Company",
   primaryColor: "#1a8a7d",
   welcomeMessage: "ようこそ。担当者をお呼びします。",
   welcomeMessageEn: "Welcome. We'll notify your contact.",

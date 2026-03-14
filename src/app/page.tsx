@@ -228,19 +228,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Social Proof ===== */}
-      <section className="py-12 px-6 border-y border-gray-100 bg-gray-50/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm text-gray-400 mb-6 uppercase tracking-widest font-medium">導入実績</p>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-2xl font-bold text-gray-200 tracking-tight">
-            <span>StartupA</span>
-            <span>VentureB</span>
-            <span>TechC</span>
-            <span>CorpD</span>
-            <span>FundE</span>
-          </div>
-        </div>
-      </section>
 
       {/* ===== Features ===== */}
       <section id="features" className="py-28 px-6">
@@ -450,9 +437,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-sm text-gray-500">
-            © 2026 Receptionism. All rights reserved.
-          </div>
+          <div className="border-t border-gray-800 pt-8" />
         </div>
       </footer>
     </div>
