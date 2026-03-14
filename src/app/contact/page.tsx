@@ -17,7 +17,7 @@ export default function ContactPage() {
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
           <a href="/reception-saas" className="text-xl font-bold text-gray-900 tracking-tight">
-            ReceptionPad
+            Receptionis
           </a>
         </div>
       </header>

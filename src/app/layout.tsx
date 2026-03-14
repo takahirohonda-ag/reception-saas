@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "ReceptionPad — スマート受付システム",
+  title: "Receptionis — スマート受付システム",
   description:
-    "iPadを置くだけ。来客通知をSlack・Teams・LINE・メール、あらゆるツールに。シンプルUI、明瞭料金、問い合わせベースのカスタマイズ。",
+    "iPadを置くだけ。来客通知をSlack・Teams・LINE・メール、あらゆるツールに即時配信。シンプルUI、明瞭料金、柔軟なカスタマイズ。",
 };
 
 export default function RootLayout({
@@ -24,10 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="ja" className="scroll-smooth">
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
