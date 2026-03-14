@@ -125,7 +125,7 @@ export default function HomePage() {
             <a href="#how-it-works" className="hover:text-gray-900 transition-colors">使い方</a>
             <a href="#integrations" className="hover:text-gray-900 transition-colors">連携</a>
             <a href="#pricing" className="hover:text-gray-900 transition-colors">料金</a>
-            <a href="#pricing" className="bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all hover:shadow-lg hover:shadow-gray-900/20">
+            <a href="/signup" className="bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-all hover:shadow-lg hover:shadow-gray-900/20">
               無料で始める
             </a>
           </nav>
@@ -156,7 +156,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#pricing"
+              href="/signup"
               className="bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-all hover:shadow-xl hover:shadow-gray-900/20 hover:-translate-y-0.5"
             >
               無料で始める
@@ -389,7 +389,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#pricing"
+              href="/signup"
               className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all hover:shadow-xl shadow-lg"
             >
               無料で始める
