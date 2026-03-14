@@ -5,7 +5,7 @@ const INTEGRATIONS = [
   { name: "Microsoft Teams", color: "from-blue-500 to-indigo-500" },
   { name: "Google Chat", color: "from-green-500 to-emerald-500" },
   { name: "LINE", color: "from-green-400 to-lime-500" },
-  { name: "LINE WORKS", color: "from-green-600 to-teal-500" },
+  { name: "LINE WORKS", color: "from-green-600 to-orange-500" },
   { name: "Discord", color: "from-indigo-500 to-purple-600" },
   { name: "Email", color: "from-amber-500 to-orange-500" },
   { name: "SMS", color: "from-cyan-500 to-blue-500" },
@@ -113,9 +113,9 @@ export default function HomePage() {
       <header className="fixed top-0 w-full bg-white/70 backdrop-blur-xl border-b border-gray-100/50 z-50">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-              <svg className="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+              <svg className="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.75 21h16.5" />
               </svg>
             </div>
             <span className="text-xl font-bold text-gray-900 tracking-tight">ラクダReception</span>
@@ -135,19 +135,19 @@ export default function HomePage() {
       {/* ===== Hero ===== */}
       <section className="relative pt-36 pb-24 px-6 overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-emerald-50/80 via-teal-50/40 to-transparent rounded-full blur-3xl -z-10" />
-        <div className="absolute top-20 right-[10%] w-72 h-72 bg-gradient-to-br from-emerald-100/40 to-cyan-100/40 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-amber-50/80 via-teal-50/40 to-transparent rounded-full blur-3xl -z-10" />
+        <div className="absolute top-20 right-[10%] w-72 h-72 bg-gradient-to-br from-amber-100/40 to-cyan-100/40 rounded-full blur-3xl -z-10" />
         <div className="absolute top-40 left-[5%] w-48 h-48 bg-gradient-to-br from-teal-100/30 to-emerald-100/30 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-4xl mx-auto text-center" style={{ animation: "fadeInUp 0.8s ease-out" }}>
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-100 rounded-full px-4 py-1.5 text-sm text-emerald-700 font-medium mb-8">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-full px-4 py-1.5 text-sm text-amber-700 font-medium mb-8">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
             次世代のオフィス受付システム
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-8">
             オフィスの受付を、
             <br />
-            <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-600 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
               30秒でスマートに。
             </span>
           </h1>
@@ -192,7 +192,7 @@ export default function HomePage() {
             <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-10 text-center max-w-lg mx-auto">
                 <h2 className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">Your Company</h2>
-                <div className="w-14 h-[3px] bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mx-auto my-7" />
+                <div className="w-14 h-[3px] bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto my-7" />
                 <p className="text-gray-400 mb-10 text-lg leading-relaxed">
                   ようこそ。担当者をお呼びします。<br />
                   Welcome. We&apos;ll notify your contact.
@@ -206,16 +206,16 @@ export default function HomePage() {
                   ].map((s) => (
                     <div
                       key={s.jp}
-                      className="border-2 border-gray-100 rounded-xl py-4 px-3 hover:border-emerald-300 hover:shadow-sm transition-all cursor-default group"
+                      className="border-2 border-gray-100 rounded-xl py-4 px-3 hover:border-amber-300 hover:shadow-sm transition-all cursor-default group"
                     >
-                      <div className="font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">{s.jp}</div>
+                      <div className="font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{s.jp}</div>
                       <div className="text-xs text-gray-400 mt-0.5">{s.en}</div>
                     </div>
                   ))}
                 </div>
                 <a
                   href="/reception/demo"
-                  className="inline-flex items-center gap-1.5 text-sm text-emerald-600 font-medium hover:text-emerald-700 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm text-amber-600 font-medium hover:text-amber-700 transition-colors"
                 >
                   実際に操作してみる
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -233,7 +233,7 @@ export default function HomePage() {
       <section id="features" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-sm text-emerald-600 font-semibold uppercase tracking-widest mb-4">Features</p>
+            <p className="text-sm text-amber-600 font-semibold uppercase tracking-widest mb-4">Features</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
               シンプルだけど、妥協はしない
             </h2>
@@ -245,9 +245,9 @@ export default function HomePage() {
             {FEATURES.map((f, i) => (
               <div
                 key={i}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-emerald-200 hover:shadow-lg hover:shadow-emerald-50 transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-50 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center text-emerald-600 mb-5 group-hover:from-emerald-100 group-hover:to-teal-100 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center text-amber-600 mb-5 group-hover:from-amber-100 group-hover:to-orange-100 transition-colors">
                   {f.icon}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
@@ -262,7 +262,7 @@ export default function HomePage() {
       <section id="how-it-works" className="py-28 px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-sm text-emerald-600 font-semibold uppercase tracking-widest mb-4">How It Works</p>
+            <p className="text-sm text-amber-600 font-semibold uppercase tracking-widest mb-4">How It Works</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
               4ステップで導入完了
             </h2>
@@ -271,7 +271,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8">
             {STEPS.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-xl font-bold mx-auto mb-5 shadow-lg shadow-emerald-500/20">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-xl font-bold mx-auto mb-5 shadow-lg shadow-amber-500/20">
                   {s.step}
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">{s.title}</h3>
@@ -289,7 +289,7 @@ export default function HomePage() {
       <section id="integrations" className="py-28 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-sm text-emerald-600 font-semibold uppercase tracking-widest mb-4">Integrations</p>
+            <p className="text-sm text-amber-600 font-semibold uppercase tracking-widest mb-4">Integrations</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
               お使いのツールに、そのまま通知
             </h2>
@@ -315,7 +315,7 @@ export default function HomePage() {
       <section id="pricing" className="py-28 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-sm text-emerald-600 font-semibold uppercase tracking-widest mb-4">Pricing</p>
+            <p className="text-sm text-amber-600 font-semibold uppercase tracking-widest mb-4">Pricing</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-5">
               明瞭な料金設計
             </h2>
@@ -332,11 +332,11 @@ export default function HomePage() {
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="inline-block bg-gradient-to-r from-emerald-400 to-teal-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
+                  <div className="inline-block bg-gradient-to-r from-amber-400 to-orange-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
                     Most Popular
                   </div>
                 )}
-                <div className={`text-sm font-semibold mb-3 ${plan.highlighted ? "text-emerald-400" : "text-gray-400 uppercase tracking-wider"}`}>
+                <div className={`text-sm font-semibold mb-3 ${plan.highlighted ? "text-amber-400" : "text-gray-400 uppercase tracking-wider"}`}>
                   {plan.name}
                 </div>
                 <div className="flex items-baseline gap-1 mb-2">
@@ -353,7 +353,7 @@ export default function HomePage() {
                 <ul className="space-y-3.5 mb-10">
                   {plan.features.map((f) => (
                     <li key={f} className={`flex items-center gap-3 text-sm ${plan.highlighted ? "text-gray-300" : "text-gray-600"}`}>
-                      <svg className={`w-5 h-5 flex-shrink-0 ${plan.highlighted ? "text-emerald-400" : "text-emerald-500"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <svg className={`w-5 h-5 flex-shrink-0 ${plan.highlighted ? "text-amber-400" : "text-amber-500"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                       {f}
@@ -378,7 +378,7 @@ export default function HomePage() {
 
       {/* ===== CTA ===== */}
       <section className="py-28 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-600 via-orange-500 to-yellow-500" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_60%)]" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-5">
@@ -410,7 +410,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
                   <svg className="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                   </svg>

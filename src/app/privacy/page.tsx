@@ -4,9 +4,9 @@ export default function PrivacyPage() {
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
           <a href="/reception-saas" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
               <svg className="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.75 21h16.5" />
               </svg>
             </div>
             <span className="text-xl font-bold text-gray-900 tracking-tight">ラクダReception</span>
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-lg font-bold text-gray-900 mb-3">7. お問い合わせ</h2>
-            <p>個人情報の取り扱いに関するお問い合わせは、<a href="/contact" className="text-emerald-600 hover:underline">お問い合わせフォーム</a>よりご連絡ください。</p>
+            <p>個人情報の取り扱いに関するお問い合わせは、<a href="/contact" className="text-amber-600 hover:underline">お問い合わせフォーム</a>よりご連絡ください。</p>
           </section>
 
           <section>
