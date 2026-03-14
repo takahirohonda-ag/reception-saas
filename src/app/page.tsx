@@ -442,9 +442,10 @@ export default function HomePage() {
                 </div>
               </div>
               <div>
-                <h4 className="text-white font-semibold mb-4">サポート</h4>
+                <h4 className="text-white font-semibold mb-4">その他</h4>
                 <div className="space-y-2.5">
                   <a href="/reception-saas/contact" className="block hover:text-white transition-colors">お問い合わせ</a>
+                  <a href="/reception-saas/privacy" className="block hover:text-white transition-colors">プライバシーポリシー</a>
                 </div>
               </div>
             </div>
