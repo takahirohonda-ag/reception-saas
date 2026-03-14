@@ -54,7 +54,7 @@ export default function DashboardPage() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/reception-saas" className="text-xl font-bold text-gray-900 tracking-tight">
-            rakudaReception
+            ラクダReception
           </a>
           <div className="flex items-center gap-4">
             <a

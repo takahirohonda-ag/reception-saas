@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "rakudaReception — スマート受付システム",
+  title: "ラクダReception — スマート受付システム",
   description:
     "iPadを置くだけ。来客通知をSlack・Teams・LINE・メール、あらゆるツールに即時配信。シンプルUI、明瞭料金、柔軟なカスタマイズ。",
 };
