@@ -118,7 +118,7 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
               </svg>
             </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight">Receptionis</span>
+            <span className="text-xl font-bold text-gray-900 tracking-tight">Receptionism</span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm text-gray-500">
             <a href="#features" className="hover:text-gray-900 transition-colors">機能</a>
@@ -184,7 +184,7 @@ export default function HomePage() {
               </div>
               <div className="flex-1 mx-4">
                 <div className="bg-gray-700/50 rounded-lg px-4 py-1.5 text-sm text-gray-400 text-center font-mono">
-                  receptionis.app/reception/your-company
+                  receptionism.app/reception/your-company
                 </div>
               </div>
             </div>
@@ -428,7 +428,7 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                   </svg>
                 </div>
-                <span className="text-xl font-bold text-white tracking-tight">Receptionis</span>
+                <span className="text-xl font-bold text-white tracking-tight">Receptionism</span>
               </div>
               <p className="text-sm text-gray-500 max-w-xs">iPadを置くだけで導入完了。オフィスの受付を次世代にアップデートします。</p>
             </div>
@@ -451,7 +451,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-sm text-gray-500">
-            © 2026 Receptionis. All rights reserved.
+            © 2026 Receptionism. All rights reserved.
           </div>
         </div>
       </footer>
